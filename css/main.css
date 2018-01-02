@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+.wrapper {
+  width: 65%;
+  height: 80%;
+  margin: 0 auto; }
+  .wrapper h1 {
+    text-align: center;
+    padding-top: 20px;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 36px;
+    padding-bottom: 20px;
+    color: #252d40;
+    font-weight: 600; }
+  .wrapper .cards-container {
+    cursor: pointer; }
+  .wrapper .card {
+    float: left;
+    margin: 10px;
+    width: 200px;
+    height: 200px;
+    opacity: 1; }
+    .wrapper .card .front {
+      position: absolute;
+      transform: perspective(600px) rotateY(0deg);
+      width: 200px;
+      height: 200px;
+      border: 2px solid #3f4c6b;
+      /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#3f4c6b+0,3f4c6b+100;Blue+Grey+Flat */
+      background: #3f4c6b;
+      /* Old browsers */
+      background: -moz-linear-gradient(top, #3f4c6b 0%, #3f4c6b 100%);
+      /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #3f4c6b 0%, #3f4c6b 100%);
+      /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #3f4c6b 0%, #3f4c6b 100%);
+      /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#3f4c6b', endColorstr='#3f4c6b', GradientType=0);
+      /* IE6-9 */
+      -webkit-box-shadow: 5px 5px 5px 0px #252d40;
+      -moz-box-shadow: 5px 5px 5px 0px #252d40;
+      box-shadow: 5px 5px 5px 0px #252d40;
+      backface-visibility: hidden;
+      transition: transform 0.5s linear 0s; }
+    .wrapper .card .back {
+      position: absolute;
+      transform: perspective(600px) rotateY(180deg);
+      width: 200px;
+      height: 200px;
+      backface-visibility: hidden;
+      transition: transform 0.5s linear 0s;
+      background-size: cover; }
+    .wrapper .card.selected > .front {
+      transform: perspective(600px) rotateY(-180deg); }
+    .wrapper .card.selected > .back {
+      transform: perspective(600px) rotateY(0deg); }
+    .wrapper .card.animated {
+      opacity: 0;
+      transform: scale(0.3);
+      transition: all 1s;
+      transition-delay: 0.5s; }
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  margin-left: -15%;
+  margin-top: 10%; }
+
+.popup .popuptext, .popubutton {
+  visibility: hidden;
+  width: 400px;
+  line-height: 56px;
+  background-color: #252d40;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 1;
+  right: 20%;
+  font-size: 24px; }
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; }
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+/*# sourceMappingURL=main.css.map */
