@@ -109,10 +109,14 @@ var app = {
             if (selectedCard.classList.contains('selected')) {
                 return;
             }
+            if (selectedCard.classList.contains('matched')) {
+                return;
+            }
 
             for (var i = 0; i < app.fieldCards.length; i++) {
 
                 if (app.fieldCards[i].id == selectedDataValue) {
+
                     app.selectedElements.push(app.fieldCards[i]);
                     selectedCard.classList.add("selected");
                 }
@@ -129,8 +133,6 @@ var app = {
     },
 
     checkMatch: function () {
-
-        app.matchedClassCheck();
         if (app.selectedElements.length == 2) {
             if (app.selectedElements[0].name === app.selectedElements[1].name) {
                 app.markAsMatched(app.selectedElements[0].id);
@@ -175,19 +177,6 @@ var app = {
         for (var i = 0; i < selectedCards.length; i++) {
             if (selectedCards[i].dataset.value == elId) {
                 selectedCards[i].classList.remove("selected");
-            }
-        }
-    },
-// prevent add mached elem to selected
-
-    matchedClassCheck: function () {
-        var matchedElem = document.getElementsByClassName("matched");
-
-        for (var i = 0; i < matchedElem.length; i++) {
-            for (var j = 0; j < app.selectedElements.length; j++) {
-                if (matchedElem[i].dataset.value = app.selectedElements[j].id) {
-                    return;
-                }
             }
         }
     }

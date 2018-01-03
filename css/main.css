@@ -8,15 +8,16 @@
   margin: 0 auto; }
   .wrapper h1 {
     text-align: center;
-    padding-top: 20px;
+    padding-top: 2%;
     font-family: 'Open Sans', sans-serif;
     font-size: 36px;
-    padding-bottom: 20px;
+    padding-bottom: 2%;
     color: #252d40;
     font-weight: 600; }
   .wrapper .cards-container {
     cursor: pointer;
-    max-width: 880px; }
+    max-width: 880px;
+    margin: 0 auto; }
   .wrapper .card {
     float: left;
     margin: 10px;
@@ -52,8 +53,6 @@
       backface-visibility: hidden;
       transition: transform 0.5s linear 0s;
       background-size: cover; }
-    .wrapper .card.selected {
-      pointer-events: none; }
     .wrapper .card.selected > .front {
       transform: perspective(600px) rotateY(-180deg); }
     .wrapper .card.selected > .back {
@@ -62,7 +61,8 @@
       opacity: 0;
       transform: scale(0.3);
       transition: all 1s;
-      transition-delay: 0.5s; }
+      transition-delay: 0.5s;
+      pointer-events: none; }
 
 /* Popup container */
 .popup {
