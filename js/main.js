@@ -100,7 +100,6 @@ var app = {
     clickHandles: function () {
 
         var cards = document.getElementsByClassName("card");
-
         var selectedClass = function (e) {
             var selectedElem = e.target;
 
@@ -130,6 +129,8 @@ var app = {
     },
 
     checkMatch: function () {
+
+        app.matchedClassCheck();
         if (app.selectedElements.length == 2) {
             if (app.selectedElements[0].name === app.selectedElements[1].name) {
                 app.markAsMatched(app.selectedElements[0].id);
@@ -150,18 +151,20 @@ var app = {
         for (var i = 0; i < selectedCards.length; i++) {
             if (selectedCards[i].dataset.value == elId) {
                 selectedCards[i].classList.add("matched");
-                selectedCards[i].classList.add("animated");
+                setTimeout(function () {
+                }, 500);
             }
         }
     },
 
     winning: function () {
         var matchedCards = document.getElementsByClassName("matched");
-        var popup = document.getElementById("myPopup");
+        var popup = document.getElementsByClassName("popuptext")[0];
 
         if (matchedCards.length == app.fieldsCountCards) {
             setTimeout(function () {
                 popup.classList.toggle("show");
+                popup.addEventListener("click", app.reset, false);
             }, 1000);
         }
     },
@@ -172,6 +175,19 @@ var app = {
         for (var i = 0; i < selectedCards.length; i++) {
             if (selectedCards[i].dataset.value == elId) {
                 selectedCards[i].classList.remove("selected");
+            }
+        }
+    },
+// prevent add mached elem to selected
+
+    matchedClassCheck: function () {
+        var matchedElem = document.getElementsByClassName("matched");
+
+        for (var i = 0; i < matchedElem.length; i++) {
+            for (var j = 0; j < app.selectedElements.length; j++) {
+                if (matchedElem[i].dataset.value = app.selectedElements[j].id) {
+                    return;
+                }
             }
         }
     }
